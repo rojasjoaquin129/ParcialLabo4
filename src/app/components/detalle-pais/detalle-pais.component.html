@@ -1,0 +1,16 @@
+<div *ngIf='productoRecibido'>
+  <div class="card  text-red text-center" style="width:500px; height: 300px;">
+    <div class="card-body">
+      <h4 >País de origen: {{nombre}}</h4>
+      <p class="card-text">
+          <b>Nombre Nativo: </b>{{nombreNativo}}
+          <br>
+          <b>Capital:  </b>{{capital}}
+          <br>
+          <b>Población:  </b>{{poblacion}} habitantes
+          <br>
+          <img [src]="bandera" width="210px" height="140px" />
+      </p>
+    </div>
+  </div>
+</div>

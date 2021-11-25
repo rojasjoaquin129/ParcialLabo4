@@ -1,0 +1,20 @@
+<div *ngIf="productoRecibido">
+  <div class="card  text-red text-center mt-2" style="width:500px; height: 300px; margin-right: 50px;">
+    <div class="card-body">
+      <h4 >Producto: {{productoRecibido.descripcion}} </h4>
+      <p class="card-text">
+          <b>Código: </b>{{productoRecibido.codigo}}
+          <br>
+          <b>Descripción:  </b>{{productoRecibido.descripcion}}
+          <br>
+          <b>Precio:  </b>{{productoRecibido.precio}}
+          <br>
+          <b>Stock:  </b>{{productoRecibido.stock}}
+          <br>
+          <b>País de Origen:  </b>{{productoRecibido.paisOrigen}}
+          <br>
+          <b>Es comestible:  </b>{{productoRecibido.comestible}}
+      </p>
+    </div>
+  </div>
+</div>

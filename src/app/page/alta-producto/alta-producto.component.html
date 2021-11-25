@@ -1,0 +1,64 @@
+<div class="container mt-5">
+    <br>
+    <div class="row">
+        <div class="col-md-4 order-md-2 mb-4">
+            <app-tabla-paises  (seSeleccionoPais)="cambiarPais($event)"> </app-tabla-paises>
+        </div>
+        <div class="col-md-8 order-md-1">
+            <form  [formGroup]="formProducto"  novalidate (ngSubmit)="guardarProducto()">
+                <div>
+                    <div class="row">
+                        <div class="col-md-12 mb-5">
+                            <h2>Alta de Producto</h2>
+                        </div>
+                    </div>
+                    <div class="row formulario">
+                        <div class="col-md-6 mb-3">
+                            <label for="codigo" class="form-label">Código:</label>
+                            <input type="number" class="form-control" id="codigo" placeholder="Código" formControlName="codigo">
+                            <small class="text-danger" *ngIf="formProducto.get('codigo')?.errors?.required && hizoClick">Código requerido</small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="descripcion" class="form-label">Descripción:</label>
+                            <input type="text" class="form-control" id="descripcion" placeholder="Descripción" formControlName="descripcion">
+                            <small class="text-danger" *ngIf="formProducto.get('descripcion')?.errors?.required && hizoClick">Descripción requerida</small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="precio" class="form-label">Precio:</label>
+                            <input type="number" class="form-control" id="precio" placeholder="Precio" formControlName="precio">
+                            <small class="text-danger" *ngIf="formProducto.get('precio')?.errors?.required && hizoClick">Precio requerido</small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="stock" class="form-label">Stock:</label>
+                            <input type="number" class="form-control" id="stock" placeholder="Stock" formControlName = "stock">
+                            <small class="text-danger" *ngIf="formProducto.get('stock')?.errors?.required && hizoClick">Stock requerido</small>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label for="Comestible">Comestible:</label>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="comestible" id="optionsRadios1" value="si" checked="" formControlName="comestible">
+                                    Si
+                                </label>
+                            </div>
+                            <div class="form-check">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" name="comestible" id="optionsRadios2" value="no" formControlName="comestible">
+                                    No
+                                </label>
+                            </div>
+                            <small class="text-danger" *ngIf="formProducto.get('comestible')?.errors?.required && hizoClick">Campo requerido</small>
+                        </div>
+                        <div class="col-md-6 mb-3" >
+                            <label for="paisOrigen">País de origen:</label>
+                            <br>
+                            <input type="text" class="form-control" id="paisOrigen" name="paisOrigen" placeholder="País"  formControlName="paisOrigen" readonly>
+                            <small class="text-danger" *ngIf="formProducto.get('paisOrigen')?.errors?.required && hizoClick">País requerido</small>
+                        </div>
+                        <div class="col-md-12 d-grid gap-2">
+                            <br>
+                            <button type="submit" class="btn btn-primary btn-block"  [disabled]="formProducto.invalid">
+                                Guardar
+                            </button>
+                        </div>
+                    </div>

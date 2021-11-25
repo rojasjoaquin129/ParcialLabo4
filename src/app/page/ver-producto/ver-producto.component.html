@@ -1,0 +1,15 @@
+<div class="jumbotron">
+  <div class="container">
+      <h3>Productos</h3>
+    <app-lista-productos  (productoSeleccionado)="tomarProducto($event)" ></app-lista-productos>
+  </div>
+</div>
+<div *ngIf="seleccionado" class="container">
+  <div class="row">
+    <div class="col-md-6 ">
+      <app-detalle-producto [productoRecibido]="prodSeleccionado"></app-detalle-producto>
+    </div>
+    <div class="col-md-6">
+      <app-detalle-pais [productoRecibido]="prodSeleccionado"></app-detalle-pais>
+    </div>
+  </div>

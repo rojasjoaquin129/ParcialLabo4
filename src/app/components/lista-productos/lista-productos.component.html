@@ -1,0 +1,15 @@
+<table class="table table-hover table-red" style="background-color: white;">
+  <thead >
+    <tr class="table-primary">
+      <th>Código</th>
+      <th>Descripción</th>
+    </tr>
+
+  </thead>
+  <tbody>
+    <tr class="table-warning" style="cursor: pointer;" *ngFor="let producto of listadoProductos"   (click)="mostrarDetalles(producto)">
+      <td>{{producto.codigo}}</td>
+      <td>{{producto.descripcion}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,16 @@
+<div class=container>
+  <div >
+      <label for="codigo" class="form-label">ódigo</label>
+      <input type="number" class="form-control" id="codigo" placeholder="" [(ngModel)]="container.codigo" disabled >
+  </div>
+  <div >
+      <label for="marca" class="form-label">Marca</label>
+      <input type="text" class="form-control" id="marca" placeholder="Marca" [(ngModel)]="container.marca" >
+  </div>
+  <div >
+      <label for="capacidad" class="form-label">Capacidad</label>
+      <input type="number" class="form-control" id="capacidad" placeholder="Capacidad" [(ngModel)]="container.capacidad">
+  </div>
+  <br>
+  <button type="button" class="w-100 btn btn-lg btn-outline-primary" (click)="modificarContainer()"  [disabled]="!(container.codigo>0)">Modificar</button>
+</div>

@@ -1,0 +1,21 @@
+<div class=container>
+  <form  [formGroup]="formContainer"  novalidate (ngSubmit)="cargarContainer()">
+      <div >
+          <label for="codigo" class="form-label">Código</label>
+          <input type="number" class="form-control" id="codigo" placeholder="Código"  formControlName="codigo" >
+          <small class="invalid" *ngIf="formContainer.get('codigo')?.errors?.required && hizoClick">Código requerido</small>
+      </div>
+      <div >
+          <label for="marca" class="form-label">Marca</label>
+          <input type="text" class="form-control" id="marca" placeholder="Marca"  formControlName="marca" >
+          <small class="invalid" *ngIf="formContainer.get('marca')?.errors?.required && hizoClick">Marca requerida</small>
+      </div>
+      <div >
+          <label for="capacidad" class="form-label">Capacidad</label>
+          <input type="number" class="form-control" id="capacidad" placeholder="Capacidad"  formControlName="capacidad">
+          <small class="invalid" *ngIf="formContainer.get('capacidad')?.errors?.required && hizoClick">Capacidad requerida</small>
+      </div>
+      <br>
+      <button type="submit" class="w-100 btn btn-lg btn-outline-primary" >Guardar</button>
+  </form>
+</div>

@@ -1,0 +1,58 @@
+<div class="container py-3">
+  <h3>ABM Containers</h3>
+
+
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+      <div class="col-md-4">
+          <div class="card mb-4 rounded-3 shadow-sm" style="height: 450px;">
+              <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Nuevo Container</h4>
+              </div>
+              <div class="card-body">
+                  <app-alta-container (altaContainer)="NuevoContainer($event)"></app-alta-container>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4 rounded-3 shadow-sm" style="height: 450px;">
+              <div class="card-header py-3">
+                  <h4 class="my-0 fw-normal">Modificar Container</h4>
+              </div>
+              <div class="card-body">
+                  <app-modificacion-container [container]='container'></app-modificacion-container>
+              </div>
+          </div>
+      </div>
+      <div class="col-md-4">
+          <div class="card mb-4 rounded-3 shadow-sm" style="height: 450px;">
+              <div class="card-header py-3 bg-outline-primary">
+                  <h4 class="my-0 fw-normal">Eliminar Container</h4>
+              </div>
+              <div class="card-body">
+                  <app-baja-container [container]='container'></app-baja-container>
+              </div>
+          </div>
+      </div>
+  </div>
+
+  <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+    <table  class="table table-hover table-red">
+        <thead>
+        <tr>
+            <th scope="col">Código</th>
+            <th scope="col">Marca </th>
+            <th scope="col">Capacidad</th>
+        </tr>
+        </thead>
+        <tbody>
+        <ng-container *ngFor="let container of listaContainers  | async">
+            <tr (click)="tomarContainer(container)" >
+            <th scope="row">{{container.codigo}}</th>
+            <td>{{container.marca}}</td>
+            <td>{{container.capacidad}}</td>
+        </tr>
+        </ng-container>
+        </tbody>
+    </table>
+</div>
+</div>
