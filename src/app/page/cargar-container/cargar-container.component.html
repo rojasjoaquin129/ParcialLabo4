@@ -18,7 +18,13 @@
                 <td>{{container.marca}}</td>
                 <td>{{container.capacidad}}</td>
 
-                <td>{{container.producto }}</td>
+                <td>
+                  <section>
+                  <option *ngFor="let es of container.producto">{{es.descripcion}}</option>
+                  <br>
+                </section>
+
+                </td>
             </tr>
             </ng-container>
             </tbody>
