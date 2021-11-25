@@ -4,14 +4,14 @@
       <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
         <table  class="table table-hover table-red">
             <thead>
-            <tr>
+            <tr class="table-primary">
                 <th scope="col">Código</th>
                 <th scope="col">Marca </th>
                 <th scope="col">Capacidad</th>
                 <th scope="col">productos</th>
             </tr>
             </thead>
-            <tbody>
+            <tbody class="table-warning">
             <ng-container *ngFor="let container of listaContainers  | async">
                 <tr (click)="tomarContainer(container)" >
                 <th scope="row">{{container.codigo}}</th>
@@ -20,11 +20,11 @@
 
                 <td>
                   <section>
-                  <option *ngFor="let es of container.producto">{{es.descripcion}}</option>
+                  <option *ngFor="let es of container.producto"> stock {{es.stock}} producto :{{es.descripcion}}</option>
                   <br>
                 </section>
-
                 </td>
+
             </tr>
             </ng-container>
             </tbody>

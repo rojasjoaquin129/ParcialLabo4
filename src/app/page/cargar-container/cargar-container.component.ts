@@ -65,7 +65,10 @@ export class CargarContainerComponent implements OnInit {
          }
          this.modificarContainer(nuevoConteiner);
          this.modificarProducto(this.prodSeleccionado);
-
+          this.mensajeSePudo("mensaje q se pudo");
+          this.seleccionoContenedor=false;
+     }else{
+       this.mensajeError("se supera el stock");
      }
 
     })
@@ -73,6 +76,24 @@ export class CargarContainerComponent implements OnInit {
 
   }
 
+  mensajeSePudo(text:string){
+    Swal.fire({
+      title:'Producto guardado',
+      text:text,
+      icon:'success',
+      confirmButtonText:'Cerrar'
+    });
+  }
+
+
+   mensajeError(text:string){
+    Swal.fire({
+      title:'Error',
+      text:text,
+      icon:'error',
+      confirmButtonText:'Cerrar'
+    });
+   }
 
   async mensajeAgregar(productoMaximo:number,contenedorMaximo:number){
     const { value: numero } = await Swal.fire({
