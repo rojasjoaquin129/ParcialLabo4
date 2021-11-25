@@ -41,21 +41,32 @@ export class CargarContainerComponent implements OnInit {
     this.prodSeleccionado=producto;
     this.mensajeAgregar(producto.stock,this.container.capacidad).then(numero=>{
      this.cantiadad=numero;
-     console.log(numero)
-     console.log(this.cantiadad);
-        this.container.capacidad=this.container.capacidad-this.cantiadad;
-        this.prodSeleccionado.stock=this.prodSeleccionado.stock-this.cantiadad;
-        const nuevoProducto:Producto={
-          stock:this.cantiadad,
-          paisOrigen:this.prodSeleccionado.paisOrigen,
-          codigo:this.prodSeleccionado.codigo,
-          precio:this.prodSeleccionado.precio,
-          descripcion:this.prodSeleccionado.descripcion,
-          comestible:this.prodSeleccionado.comestible
-        }
-        this.container.producto.push(nuevoProducto);
-        this.modificarContainer(this.container);
-        this.modificarProducto(this.prodSeleccionado);
+     if(this.cantiadad<=producto.stock && this.cantiadad<= this.container.capacidad){
+      console.log(numero)
+      console.log(this.cantiadad);
+         this.container.capacidad=this.container.capacidad-this.cantiadad;
+         this.prodSeleccionado.stock=this.prodSeleccionado.stock-this.cantiadad;
+         const nuevoProducto:Producto={
+           stock:this.cantiadad,
+           paisOrigen:this.prodSeleccionado.paisOrigen,
+           codigo:this.prodSeleccionado.codigo,
+           precio:this.prodSeleccionado.precio,
+           descripcion:this.prodSeleccionado.descripcion,
+           comestible:this.prodSeleccionado.comestible
+         }
+         let array:any=[];
+         if(this.container.producto){
+           array=this.container.producto
+         };
+         array.push(nuevoProducto);
+         const nuevoConteiner:Container={
+           producto:array,
+           ...this.container
+         }
+         this.modificarContainer(nuevoConteiner);
+         this.modificarProducto(this.prodSeleccionado);
+
+     }
 
     })
 

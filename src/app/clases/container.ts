@@ -6,5 +6,5 @@ export class Container {
   public marca!: string;
   public capacidad!: number;
   public stock!: number;
-  public producto!: Producto[];
+  public producto?: Producto[];
 }
